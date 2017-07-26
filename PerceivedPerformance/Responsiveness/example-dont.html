@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="Don't - Responsiveness - Perceived Performance">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Don't - Responsiveness - Perceived Performance</title>
+  <style src="style.css">
+</head>
+<body>
+<button id="open">Click me</button>
+<div id="panel" class="hidden">
+  <div id="contentWrapper">
+    <div id="content" class="hidden"></div>
+  </div>
+  <button id="close">Close</button>
+</div>
+<script>
+  document.getElementById("open").onclick = function() {
+    myToggle();
+  };
+  document.getElementById("close").onclick = function() {
+    myToggle();
+  };
+
+  function myToggle() {
+    document.getElementById("panel").classList.toggle("hidden");
+    document.getElementById("panel").classList.toggle("visiblePanel");
+    document.getElementById("content").classList.toggle("hidden");
+    document.getElementById("content").classList.toggle("visibleContent");
+  }
+</script>
+</body>
+</html>
