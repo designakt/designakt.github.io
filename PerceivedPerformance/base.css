@@ -7,3 +7,9 @@ html, body {
   font-family: "Fira Sans", sans-serif;
   background: #eee;
 }
+
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
