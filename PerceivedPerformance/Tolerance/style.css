@@ -1,11 +1,10 @@
 #prog-bar-cont {
   width: 75vw;
-  height: 0.5em;
 }
 
 #prog-bar-cont #prog-bar {
   width: 100%;
-  height: 100%;
+  height: 0.5em;
   border-radius: 2px;
   border: 1px solid lightgrey;
   overflow: hidden;
