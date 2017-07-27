@@ -7,24 +7,22 @@
   height: 0.5em;
   border-radius: 2px;
   border: 1px solid lightgrey;
-  overflow: hidden;
-  position: relative;
+
 }
 
 #prog-bar-cont #prog-bar #background {
-  width: 100%;
+  width: 0%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: linear-gradient(-90deg, lightblue, lightblue);
+  background-color: lightblue;
   animation: progress 30s linear infinite;
 }
+
 @keyframes progress {
-    0% {clip-path: inset(0 100% 0 0);}
-   95% {clip-path: inset(0   0  0 0);}
-  100% {clip-path: inset(0   0  0 0);}
+    0% {width:   0%;}
+   95% {width: 100%;}
+  100% {width: 100%;}
 }
+
 
 #prog-bar-cont #prog-bar #background:before {
   content: '';
