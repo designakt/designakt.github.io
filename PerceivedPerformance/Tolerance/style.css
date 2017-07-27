@@ -1,0 +1,63 @@
+html, body {
+  text-align:center;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#prog-bar-cont {
+  width: 75vw;
+  height: 0.5em;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+#prog-bar-cont p {
+  font-size: 10px;
+}
+
+#prog-bar-cont #prog-bar {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  overflow: hidden;
+  position: relative;
+}
+
+#prog-bar-cont #prog-bar #background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(-90deg, lightblue, lightblue);
+  animation: progress 30s linear infinite;
+}
+@keyframes progress {
+    0% {clip-path: inset(0 100% 0 0);}
+   95% {clip-path: inset(0   0  0 0);}
+  100% {clip-path: inset(0   0  0 0);}
+}
+
+#prog-bar-cont #prog-bar #background:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  border-radius: 2px;
+  background-image: repeating-linear-gradient(135deg, black 0%, black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%, transparent 100%);
+  background-size: 30px 30px;
+  animation: moveStripes 1s linear infinite;
+}
+@keyframes moveStripes {
+  0%   {background-position:   0   0;}
+  100% {background-position: -60px 0;}
+}
