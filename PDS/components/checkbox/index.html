@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Checkbox - Component - PDS">
+  <title>Checkbox - Component - PDS</title>
+  <link href="./../../base.css" rel="stylesheet">
+  <link href="./../../variables.css" rel="stylesheet">
+  <link href="./../../font.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <style>
+  </style>
+</head>
+<body>
+  <div class="container-content">
+    <section id="section-general-startup">
+      <h2 class="label-section">Title for a group of choices</h2>
+      <!--
+      consider native fieldset & label approach to group Checkboxes
+      https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Handling_multiple_checkboxes
+      -->
+      <div class="group-ui-elements item-checkbox">
+        <input id="checkbox-01" type="checkbox" checked>
+        <label for="checkbox-01">Enable option A</label>
+      </div>
+      <div class="group-ui-elements item-checkbox subcheckbox">
+        <input id="checkbox-02" type="checkbox">
+        <label for="checkbox-02">Enable sub-option A1</label>
+      </div>
+      <div class="group-ui-elements item-checkbox has-helptext">
+        <input id="checkbox-03" type="checkbox" checked>
+        <label for="checkbox-03">Enable option B with a longer label</label>
+      </div>
+      <div class="group-ui-elements item-helptext">
+        Help for option B, showing status or explaining further.
+      </div>
+    </section>
+  </div>
+</body>
+</html>
