@@ -13,7 +13,7 @@
   <style>
   </style>
 </head>
-<body onload="set_style_from_cookie()">
+<body onload="(function(){set_style_from_cookie(); updateBottomUp();})()">
   <div class="container-content">
     <section id="section-general-startup">
       <h2 class="label-section">Title for a group of choices</h2>
@@ -26,15 +26,23 @@
         <label for="checkbox-01">Enable option A</label>
       </div>
       <div class="group-ui-elements item-checkbox subcheckbox">
-        <input id="checkbox-02" type="checkbox">
-        <label for="checkbox-02">Enable sub-option A1</label>
+        <input id="checkbox-02" type="checkbox" class="part">
+        <label for="checkbox-02">Enable part 1 of option A</label>
+      </div>
+      <div class="group-ui-elements item-checkbox subcheckbox">
+        <input id="checkbox-03" type="checkbox" class="part" checked>
+        <label for="checkbox-03">Enable part 2 of option A</label>
       </div>
       <div class="group-ui-elements item-checkbox has-helptext">
-        <input id="checkbox-03" type="checkbox" checked>
-        <label for="checkbox-03">Enable option B with a longer label</label>
+        <input id="checkbox-04" type="checkbox" checked>
+        <label for="checkbox-04">Enable option B with a longer label</label>
       </div>
       <div class="group-ui-elements item-helptext">
         Help for option B, showing status or explaining further.
+      </div>
+      <div class="group-ui-elements item-checkbox subcheckbox">
+        <input id="checkbox-04" type="checkbox" >
+        <label for="checkbox-04">Enable dependent option B1</label>
       </div>
     </section>
   </div>
@@ -44,5 +52,6 @@
   <input type="submit" onclick="switch_style('styleB');return false;" name="theme" value="Style B" id="styleB">
   </form>
   <script src="./styleflip.js"></script>
+  <script src="./checkcheckboxstate.js"></script>
 </body>
 </html>
