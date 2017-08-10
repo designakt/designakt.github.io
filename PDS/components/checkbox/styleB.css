@@ -74,16 +74,11 @@ input[type="radio"] {
   margin-right: 4px;
   width: 16px;
   height: 16px;
-  background-color: var(--grey-90-10);
-    /*
-    This might be a contrast problem if required to see, to identify as a ckechbox
-    http://leaverou.github.io/contrast-ratio/#rgba%2812%2C%2012%2C%2013%2C%200.2%29-on-rgb%28249%2C%20249%2C%20250%29%3B
-    */
+  background-color: var(--white);
+  border:1px solid var(--grey-90-40);
   background-size: 4px;
   background-repeat: no-repeat;
   background-position: center center;
-
-  flex: 0 1 auto; /*  */
 }
 
 input[type="checkbox"] + label,
@@ -98,12 +93,14 @@ input[type="radio"] {
 
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
-  background-color: var(--grey-90-20);
+  background-color: var(--grey-90-10);
+  border:1px solid var(--grey-90-50);
 }
 
 input[type="checkbox"]:hover:active,
 input[type="radio"]:hover:active {
-  background-color: var(--grey-90-30);
+  background-color: var(--grey-90-20);
+  border:1px solid var(--grey-90-60);
 }
 
 input[type="checkbox"]:checked,
@@ -120,7 +117,7 @@ input[type="radio"]:checked {
   animation-timing-function:  var(--animation-curve);
 }
 input[type="radio"]:checked {
-  background-image: url("../images/radio-16.svg");
+  background-image: url("./radio-16.svg");
 }
 
 input[type="checkbox"]:checked:hover,
@@ -133,6 +130,13 @@ input[type="radio"]:checked:hover:active {
   background-color: var(--blue-70);
 }
 
+
+
+input[type="checkbox"]:indeterminate {
+  background-color: var(--blue-50);
+  background-image: url("./radio-16.svg");
+  background-size: 16px;
+}
 
 /* --------Focus-------- */
 

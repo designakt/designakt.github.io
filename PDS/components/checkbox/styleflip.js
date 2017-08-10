@@ -1,17 +1,17 @@
 // *** TO BE CUSTOMISED ***
-console.log("Styleflip loading...");
+//console.log("Styleflip loading...");
 var style_cookie_name = "style" ;
 var style_cookie_duration = 30 ;
 var style_domain = "designakt.github.io" ;
 var style_domain = window.location.hostname;
-console.log("Styleflip Domain: "+style_domain);
+//console.log("Styleflip Domain: "+style_domain);
 
 // *** END OF CUSTOMISABLE SECTION ***
 // You do not need to customise anything below this line
 
 function switch_style ( css_title )
 {
-  console.log("Styleflip switch_style( "+css_title+" )");
+  //console.log("Styleflip switch_style( "+css_title+" )");
 // You may use this script on your site free of charge provided
 // you do not remove this notice or the URL below. Script from
 // https://www.thesitewizard.com/javascripts/change-style-sheets.shtml
@@ -31,7 +31,7 @@ function switch_style ( css_title )
 }
 function set_style_from_cookie()
 {
-  console.log("Styleflip set_style_from_cookie()");
+  //console.log("Styleflip set_style_from_cookie()");
   var css_title = get_cookie( style_cookie_name );
   if (css_title.length) {
     switch_style( css_title );
@@ -40,7 +40,7 @@ function set_style_from_cookie()
 function set_cookie ( cookie_name, cookie_value,
     lifespan_in_days, valid_domain )
 {
-  console.log("Styleflip set_cookie( "+cookie_name+", "+cookie_value+", "+lifespan_in_days+", "+valid_domain+" )");
+  //console.log("Styleflip set_cookie( "+cookie_name+", "+cookie_value+", "+lifespan_in_days+", "+valid_domain+" )");
 
     // https://www.thesitewizard.com/javascripts/cookies.shtml
     var domain_string = valid_domain ?
@@ -64,4 +64,4 @@ function get_cookie ( cookie_name )
     }
     return '' ;
 }
-console.log("Styleflip ready.");
+//console.log("Styleflip ready.");
