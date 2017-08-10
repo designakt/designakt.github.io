@@ -58,5 +58,4 @@ function updateBottomUp() {
   }
 }
 
-// disabled
-https://www.w3schools.com/jsref/prop_checkbox_disabled.asp
+// disabled: https://www.w3schools.com/jsref/prop_checkbox_disabled.asp
