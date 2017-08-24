@@ -3,9 +3,17 @@ console.log("checkcheckboxstate loading...");
 
 // parts
 var overall = document.querySelector('input[id="checkbox-01"]');
-var parts = document.querySelectorAll('input[class="part"]');
+var parts = document.querySelectorAll('input[class="part"]'); // id 2 & 3
+var cb_parent = document.querySelector('input[id="checkbox-04"]');
+var cb_child = document.querySelector('input[id="checkbox-05"]');
+
 
 overall.addEventListener('click', updateTopDown);
+for(var i = 0; i < parts.length; i++) {
+  parts[i].addEventListener('click', updateBottomUp);
+}
+cb_parent.addEventListener('click', updateChild);
+
 
 function updateTopDown() {
   //e.preventDefault();
@@ -28,10 +36,6 @@ function updateTopDown() {
     overall.indeterminate = false;
   }
   updateBottomUp();
-}
-
-for(var i = 0; i < parts.length; i++) {
-  parts[i].addEventListener('click', updateBottomUp);
 }
 
 function updateBottomUp() {
@@ -59,3 +63,15 @@ function updateBottomUp() {
 }
 
 // disabled: https://www.w3schools.com/jsref/prop_checkbox_disabled.asp
+function updateChild() {
+  console.log("parent.checked: "+cb_parent.checked);
+
+  if(cb_parent.checked) {
+    console.log("checked");
+    cb_child.disabled = false;
+  }
+  else {
+    console.log("unchecked");
+    cb_child.disabled = true;
+  }
+}

@@ -54,6 +54,10 @@ section {
   color: #737373;
 }
 
+.item-helptext + .group-ui-elements.item-checkbox {
+  margin-top: -8px;
+}
+
 /* ====================== */
 /* ------UI Styles------- */
 /* ====================== */
@@ -70,6 +74,8 @@ section {
 }
 
 input[type="checkbox"],
+input[type="checkbox"]:disabled:hover,
+input[type="checkbox"]:disabled:hover:active,
 input[type="radio"] {
   margin-right: 4px;
   width: 16px;
@@ -104,6 +110,8 @@ input[type="radio"]:hover:active {
 }
 
 input[type="checkbox"]:checked,
+input[type="checkbox"]:checked:disabled:hover,
+input[type="checkbox"]:checked:disabled:hover:active,
 input[type="radio"]:checked {
   background-color: var(--blue-50);
   background-image: url("./check-16.svg");
@@ -136,6 +144,10 @@ input[type="checkbox"]:indeterminate {
   background-color: var(--blue-50);
   background-image: url("./radio-16.svg");
   background-size: 16px;
+}
+
+input[type="checkbox"]:disabled {
+  opacity: 0.3;
 }
 
 /* --------Focus-------- */

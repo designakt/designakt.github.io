@@ -10,10 +10,11 @@
   <link href="./../../font.css" rel="stylesheet">
   <link href="./style.css" rel="stylesheet" title="styleA">
   <link href="./styleB.css" rel="alternate stylesheet" title="styleB">
+  <link href="./styleC.css" rel="alternate stylesheet" title="styleC">
   <style>
   </style>
 </head>
-<body onload="(function(){set_style_from_cookie(); updateBottomUp();})()">
+<body onload="(function(){set_style_from_cookie(); updateBottomUp(); updateChild();})()">
   <div class="container-content">
     <section id="section-general-startup">
       <h2 class="label-section">Title for a group of choices</h2>
@@ -34,15 +35,15 @@
         <label for="checkbox-03">Enable part 2 of option A</label>
       </div>
       <div class="group-ui-elements item-checkbox has-helptext">
-        <input id="checkbox-04" type="checkbox" checked>
+        <input id="checkbox-04" type="checkbox">
         <label for="checkbox-04">Enable option B with a longer label</label>
       </div>
       <div class="group-ui-elements item-helptext">
         Help for option B, showing status or explaining further.
       </div>
       <div class="group-ui-elements item-checkbox subcheckbox">
-        <input id="checkbox-04" type="checkbox" >
-        <label for="checkbox-04">Enable dependent option B1</label>
+        <input id="checkbox-05" type="checkbox" >
+        <label for="checkbox-05">Enable dependent option B1</label>
       </div>
     </section>
   </div>
@@ -50,6 +51,8 @@
   <form id="stlyeflip">
   <input type="submit" onclick="switch_style('styleA');return false;" name="theme" value="Style A" id="styleA">
   <input type="submit" onclick="switch_style('styleB');return false;" name="theme" value="Style B" id="styleB">
+  <!--<input type="submit" onclick="switch_style('styleC');return false;" name="theme" value="Style C" id="styleC">
+-->
   </form>
   <script src="./styleflip.js"></script>
   <script src="./checkcheckboxstate.js"></script>
