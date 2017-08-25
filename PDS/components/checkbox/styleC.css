@@ -2,7 +2,7 @@
 /* ---Content Styles----- */
 /* ====================== */
 
-#styleB { /* mark current style */
+#styleC { /* mark current style */
   color: DodgerBlue;
 }
 
@@ -30,11 +30,14 @@ section {
 .group-ui-elements.item-checkbox {
   display: flex;
   align-items: center;
+  margin-left: -2px;
+  padding-left: 2px;
 }
 
 .group-ui-elements.subitem,
 .group-ui-elements.item-checkbox.subcheckbox {
-  padding-left: 20px;
+  margin-left: 18px;
+  padding-left: 2px;
 }
 
 .group-ui-elements.item-checkbox + .group-ui-elements.item-checkbox {
@@ -81,10 +84,10 @@ input[type="radio"] {
   margin-right: 4px;
   width: 16px;
   height: 16px;
-  background-color: var(--grey-90-10);
+  background-color: var(--white);/*
   border: 1px solid var(--grey-90-30); /* This might be a contrast problem if required to see, to identify as a ckechbox
   http://leaverou.github.io/contrast-ratio/#rgba%2812%2C%2012%2C%2013%2C%200.2%29-on-rgb%28249%2C%20249%2C%20250%29%3B
-  border: 1px solid var(--grey-90-40); /* for contrast  WCAG AA large text
+  border: 1px solid var(--grey-90-40); /* for contrast  WCAG AA large text */
   border: 1px solid var(--grey-90-60); /* for contrast  WCAG AA normal text*/
   background-size: 4px;
   background-repeat: no-repeat;
@@ -103,12 +106,18 @@ input[type="radio"] {
 
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
-  background-color: var(--grey-90-20);
+  background-color: var(--grey-90-10);
+  border:1px solid var(--grey-90-50);
+}
+
+.item-checkbox:hover {
+  background-color: var(--grey-20);
 }
 
 input[type="checkbox"]:hover:active,
 input[type="radio"]:hover:active {
-  background-color: var(--grey-90-30);
+  background-color: var(--grey-90-20);
+  border:1px solid var(--grey-90-60);
 }
 
 input[type="checkbox"]:checked,
@@ -116,7 +125,7 @@ input[type="checkbox"]:checked:disabled:hover,
 input[type="checkbox"]:checked:disabled:hover:active,
 input[type="radio"]:checked {
   background-color: var(--blue-50);
-  background-image: url("./check-16_whitefill_oldshape.svg");
+  background-image: url("./check-16.svg");
   background-size: 16px;
 
   animation-name: checked;
@@ -127,7 +136,7 @@ input[type="radio"]:checked {
   animation-timing-function:  var(--animation-curve);
 }
 input[type="radio"]:checked {
-  background-image: url("../images/radio-16.svg");
+  background-image: url("./radio-16.svg");
 }
 
 input[type="checkbox"]:checked:hover,
@@ -145,14 +154,14 @@ input[type="radio"]:checked:hover:active {
 
 input[type="checkbox"]:indeterminate {
   background-color: var(--blue-50);
-  background-image: url("./indetermined-dash.svg");
+  background-image: url("./radio-16.svg");
   background-size: 16px;
 }
 
 /* --------Disabled-------- */
 
 input[type="checkbox"]:disabled {
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 input[type="checkbox"]:disabled + label {

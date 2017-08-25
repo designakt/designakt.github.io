@@ -16,10 +16,9 @@
 </head>
 <body onload="(function(){set_style_from_cookie(); updateBottomUp(); updateChild();})()">
   <form id="stlyeflip">
-  <input type="submit" onclick="switch_style('styleA');return false;" name="theme" value="Style A" id="styleA">
-  <input type="submit" onclick="switch_style('styleB');return false;" name="theme" value="Style B" id="styleB">
-  <!--<input type="submit" onclick="switch_style('styleC');return false;" name="theme" value="Style C" id="styleC">
--->
+    <input type="submit" onclick="switch_style('styleA');return false;" name="theme" value="Style A" id="styleA">
+    <input type="submit" onclick="switch_style('styleB');return false;" name="theme" value="Style B" id="styleB">
+    <input type="submit" onclick="switch_style('styleC');return false;" name="theme" value="Style C" id="styleC">
   </form>
   <div class="container-content">
     <section id="section-general-startup">
@@ -45,10 +44,10 @@
         <label for="checkbox-04">Enable option B with a longer label</label>
       </div>
       <div class="group-ui-elements item-helptext">
-        Help for option B, showing status or explaining further.
+        Help for option B, status or explaination.
       </div>
       <div class="group-ui-elements item-checkbox subcheckbox">
-        <input id="checkbox-05" type="checkbox" >
+        <input id="checkbox-05" type="checkbox" checked>
         <label for="checkbox-05">Enable dependent option B1</label>
       </div>
     </section>
