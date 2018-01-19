@@ -83,6 +83,7 @@
 
   --blue-50-10: hsla(var(--blue-50-values), .1);
   --blue-50-20: hsla(var(--blue-50-values), .2);
+  --blue-50-30: hsla(var(--blue-50-values), .3);
 
 
   --teal-50-values: 180, 100%, 50%;

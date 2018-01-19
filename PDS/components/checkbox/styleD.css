@@ -2,7 +2,7 @@
 /* ---Content Styles----- */
 /* ====================== */
 
-#styleB { /* mark current style */
+#styleD { /* mark current style */
   color: DodgerBlue;
 }
 
@@ -145,7 +145,7 @@ input[type="radio"]:checked:hover:active {
 
 input[type="checkbox"]:indeterminate {
   background-color: var(--blue-50);
-  background-image: url("./indetermined-dash.svg");
+  background-image: url("./indetermined.svg");
   background-size: 16px;
 }
 
@@ -161,29 +161,22 @@ input[type="checkbox"]:disabled + label {
 
 
 /* --------Focus-------- */
-
-button:focus,
 input[type="checkbox"]:focus,
 input[type="radio"]:focus {
   box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 4px var(--blue-50-10),
-              0 0 0 2px var(--blue-50-20);
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
 
-  animation-name: focus-ring-color-shift;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
+  animation: none;
 }
 
-button.button-primary:focus,
 input[type="checkbox"]:checked:focus,
 input[type="radio"]:checked:focus {
   box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 4px var(--blue-50-10),
-              0 0 0 2px var(--blue-50-20),
-              0 0 0 2px #fff inset;
-  animation-name: focus-ring-color-shift-solid;
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+
+  animation-timing-function: ease;
 }
 
 /* --------Transitions-------- */
@@ -195,33 +188,4 @@ input[type="checkbox"] {
   transition-property: box-shadow;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(var(--animation-curve));
-}
-
-
-@keyframes focus-ring-color-shift {
-  from {
-    box-shadow: 0 0 0 1px var(--blue-50) inset,
-                0 0 0 4px var(--blue-50-10),
-                0 0 0 2px var(--blue-50-20);
-  }
-  to {
-    box-shadow: 0 0 0 1px var(--teal-60) inset,
-                0 0 0 4px var(--teal-50-10),
-                0 0 0 2px var(--teal-60-20);
-  }
-}
-
-@keyframes focus-ring-color-shift-solid {
-  from {
-    box-shadow: 0 0 0 1px var(--blue-50) inset,
-                0 0 0 4px var(--blue-50-10),
-                0 0 0 2px var(--blue-50-20),
-                0 0 0 2px #fff inset;
-  }
-  to {
-    box-shadow: 0 0 0 1px var(--teal-60) inset,
-                0 0 0 4px var(--teal-50-10),
-                0 0 0 2px var(--teal-60-20),
-                0 0 0 2px #fff inset;
-  }
 }
