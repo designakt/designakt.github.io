@@ -47,3 +47,60 @@ a:hover {
 a:visited {
   color: var(--blue-60);
 }
+
+
+/* ====================== */
+/* ---Content Styles----- */
+/* ====================== */
+
+h2.label-section {
+  font-size: 1.25em;
+  line-height: 1.25em;
+  margin-bottom: 8px;
+}
+
+section {
+  margin-bottom: 32px;
+  width: -moz-fit-content;
+}
+
+.container-content {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.group-ui-elements {
+  margin-bottom: 16px;
+}
+
+.group-ui-elements.item-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.group-ui-elements.subitem,
+.group-ui-elements.item-checkbox.subcheckbox {
+  padding-left: 20px;
+}
+
+.group-ui-elements.item-checkbox + .group-ui-elements.item-checkbox {
+  margin-top: -8px;
+}
+
+.group-ui-elements.has-helptext {
+  margin-bottom: 4px;
+}
+
+.group-ui-elements.item-checkbox + .item-helptext {
+  margin-left: 20px;
+}
+
+.item-helptext {
+  font-size: .9em;
+  line-height: 1.35em;
+  color: #737373;
+}
+
+.item-helptext + .group-ui-elements.item-checkbox {
+  margin-top: -8px; /* ensure that a checkbox after a checkbox with helptext is decently spaced */
+}
