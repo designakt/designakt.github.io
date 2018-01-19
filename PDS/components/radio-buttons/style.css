@@ -1,65 +1,66 @@
 /* ====================== */
-/* ---Content Styles----- */
-/* ====================== */
-
-h2.label-section {
-  font-size: 1.25em;
-  line-height: 1.25em;
-  margin-bottom: 8px;
-}
-
-section {
-  margin-bottom: 32px;
-  width: -moz-fit-content;
-}
-
-.container-content {
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.group-ui-elements {
-  margin-bottom: 16px;
-}
-
-.group-ui-elements.item-checkbox {
-  display: flex;
-  align-items: center;
-}
-
-.group-ui-elements.subitem,
-.group-ui-elements.item-checkbox.subcheckbox {
-  padding-left: 20px;
-}
-
-.group-ui-elements.item-checkbox + .group-ui-elements.item-checkbox {
-  margin-top: -8px;
-}
-
-.group-ui-elements.has-helptext {
-  margin-bottom: 4px;
-}
-
-.group-ui-elements.item-checkbox + .item-helptext {
-  margin-left: 20px;
-}
-
-.item-helptext {
-  font-size: .9em;
-  line-height: 1.35em;
-  color: #737373;
-}
-
-.item-helptext + .group-ui-elements.item-checkbox {
-  margin-top: -8px; /* ensure that a checkbox after a checkbox with helptext is decently spaced */
-}
-
-/* ====================== */
 /* ------UI Styles------- */
 /* ====================== */
 
-/* --------Radio and Checkboxes-------- */
+/* ====================== */
+/* ----Radio-Buttons----- */
 
+/* ------Unchecked------- */
+
+input[type="radio"] {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+
+  background-color: var(--grey-90-10);
+  background-size: 4px;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  border: 1px solid var(--grey-90-30);
+  border-radius: 100%;
+
+  animation-name: none;
+}
+
+input[type="radio"] + label {
+  flex: 1 1 auto;
+}
+
+input[type="radio"]:hover {
+  background-color: var(--grey-90-20);
+}
+
+input[type="radio"]:hover:active {
+  background-color: var(--grey-90-30);
+}
+
+/* ------Focus----------- */
+
+input[type="radio"]:focus {
+  border: 0;
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+  animation: none;
+}
+
+/* ------Checked--------- */
+
+input[type="radio"]:checked {
+  background-color: var(--blue-60);
+  background-image: url("./radio-16.svg");
+  background-size: 16px;
+
+  border: none;
+
+  animation-name: checked;
+  animation-delay: 0;
+  animation-direction: forwards;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function:  var(--animation-curve);
+}
 @keyframes checked {
   from {
   background-size: 8px;
@@ -69,157 +70,10 @@ section {
   }
 }
 
-input[type="checkbox"],
-input[type="checkbox"]:disabled:hover,
-input[type="checkbox"]:disabled:hover:active,
-input[type="radio"] {
-  margin-right: 4px;
-  width: 16px;
-  height: 16px;
-  background-color: var(--grey-90-10);
-  border: 1px solid var(--grey-90-30); /* This might be a contrast problem if required to see, to identify as a ckechbox
-  http://leaverou.github.io/contrast-ratio/#rgba%2812%2C%2012%2C%2013%2C%200.2%29-on-rgb%28249%2C%20249%2C%20250%29%3B
-  border: 1px solid var(--grey-90-40); /* for contrast  WCAG AA large text
-  border: 1px solid var(--grey-90-60); /* for contrast  WCAG AA normal text*/
-  background-size: 4px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  animation-name: none;
-
-}
-
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  flex: 1 1 auto; /* ensure that all labels in a group stretch to the same width,
-                     to allow for selecting with the mouse just moving up or down */
-}
-
-input[type="radio"] {
-  border-radius: 100%;
-}
-
-input[type="checkbox"]:hover,
-input[type="radio"]:hover {
-  background-color: var(--grey-90-20);
-}
-
-input[type="checkbox"]:hover:active,
-input[type="radio"]:hover:active {
-  background-color: var(--grey-90-30);
-}
-
-input[type="checkbox"]:checked,
-input[type="checkbox"]:checked:disabled:hover,
-input[type="checkbox"]:checked:disabled:hover:active,
-input[type="radio"]:checked {
-  background-color: var(--blue-50);
-  background-image: url("./check-16_whitefill_oldshape.svg");
-  background-size: 16px;
-
-  animation-name: checked;
-  animation-delay: 0;
-  animation-direction: forwards;
-  animation-duration: 500ms;
-  animation-iteration-count: 1;
-  animation-timing-function:  var(--animation-curve);
-}
-input[type="radio"]:checked {
-  background-image: url("./radio-16.svg");
-}
-
-input[type="checkbox"]:checked:hover,
 input[type="radio"]:checked:hover {
-  background-color: var(--blue-60);
-}
-
-input[type="checkbox"]:checked:hover:active,
-input[type="radio"]:checked:hover:active {
   background-color: var(--blue-70);
 }
 
-
-/* --------Indetermined-------- */
-
-input[type="checkbox"]:indeterminate {
-  background-color: var(--blue-50);
-  background-image: url("./indetermined.svg");
-  background-size: 16px;
-}
-
-/* --------Disabled-------- */
-
-input[type="checkbox"]:disabled {
-  opacity: 0.5;
-}
-
-input[type="checkbox"]:disabled + label {
-  color: rgb(127, 127, 127);
-}
-
-
-/* --------Focus-------- */
-
-button:focus,
-input[type="checkbox"]:focus,
-input[type="radio"]:focus {
-  box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 4px var(--blue-50-10),
-              0 0 0 2px var(--blue-50-20);
-
-  animation-name: focus-ring-color-shift;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-}
-
-button.button-primary:focus,
-input[type="checkbox"]:checked:focus,
-input[type="radio"]:checked:focus {
-  box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 4px var(--blue-50-10),
-              0 0 0 2px var(--blue-50-20),
-              0 0 0 2px #fff inset;
-  animation-name: focus-ring-color-shift-solid;
-}
-
-
-/* --------Transitions-------- */
-
-button,
-select,
-input[type="text"],
-input[type="checkbox"] {
-  transition-property: box-shadow;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(var(--animation-curve));
-}
-
-
-@keyframes focus-ring-color-shift {
-  from {
-    box-shadow: 0 0 0 1px var(--blue-50) inset,
-                0 0 0 4px var(--blue-50-10),
-                0 0 0 2px var(--blue-50-20);
-  }
-  to {
-    box-shadow: 0 0 0 1px var(--teal-60) inset,
-                0 0 0 4px var(--teal-50-10),
-                0 0 0 2px var(--teal-60-20);
-  }
-}
-
-@keyframes focus-ring-color-shift-solid {
-  from {
-    box-shadow: 0 0 0 1px var(--blue-50) inset,
-                0 0 0 4px var(--blue-50-10),
-                0 0 0 2px var(--blue-50-20),
-                0 0 0 2px #fff inset;
-  }
-  to {
-    box-shadow: 0 0 0 1px var(--teal-60) inset,
-                0 0 0 4px var(--teal-50-10),
-                0 0 0 2px var(--teal-60-20),
-                0 0 0 2px #fff inset;
-  }
+input[type="radio"]:checked:hover:active {
+  background-color: var(--blue-80);
 }
