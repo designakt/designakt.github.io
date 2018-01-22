@@ -65,9 +65,14 @@ section {
   width: -moz-fit-content;
 }
 
-.container-content {
+.container-content,
+.container-demo {
   margin: 0 auto;
   padding: 20px;
+}
+
+.container-demo {
+  width: -moz-fit-content;
 }
 
 .group-ui-elements {
