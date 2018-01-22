@@ -74,17 +74,20 @@ section {
   margin-bottom: 16px;
 }
 
-.group-ui-elements.item-checkbox {
+.group-ui-elements.item-checkbox,
+.group-ui-elements.item-radiobutton {
   display: flex;
   align-items: center;
 }
 
 .group-ui-elements.subitem,
-.group-ui-elements.item-checkbox.subcheckbox {
+.group-ui-elements.item-checkbox.subcheckbox,
+.group-ui-elements.item-radiobutton.subradiobutton {
   padding-left: 20px;
 }
 
-.group-ui-elements.item-checkbox + .group-ui-elements.item-checkbox {
+.group-ui-elements.item-checkbox + .group-ui-elements.item-checkbox,
+.group-ui-elements.item-radiobutton + .group-ui-elements.item-radiobutton {
   margin-top: -8px;
 }
 
@@ -92,7 +95,8 @@ section {
   margin-bottom: 4px;
 }
 
-.group-ui-elements.item-checkbox + .item-helptext {
+.group-ui-elements.item-checkbox + .item-helptext,
+.group-ui-elements.item-radiobutton + .item-helptext {
   margin-left: 20px;
 }
 
@@ -102,6 +106,7 @@ section {
   color: #737373;
 }
 
-.item-helptext + .group-ui-elements.item-checkbox {
+.item-helptext + .group-ui-elements.item-checkbox,
+.item-helptext + .group-ui-elements.item-radiobutton {
   margin-top: -8px; /* ensure that a checkbox after a checkbox with helptext is decently spaced */
 }
