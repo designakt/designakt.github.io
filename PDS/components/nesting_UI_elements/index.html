@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Checkbox - Component - PDS">
+  <meta name="description" content="Nesting - Pattern - PDS">
   <title>Checkbox - Component - PDS</title>
   <link href="./../../base.css" rel="stylesheet">
   <link href="./../../variables.css" rel="stylesheet">
@@ -14,7 +14,8 @@
 </head>
 <body onload="(function(){updateBottomUp(); updateChild(); alluncheck_updateChild(); updateHideChild(); updateHideResSub();})()" style="margin:20px; height: auto;">
   <h1 class="label-section" style="margin-bottom:10px;">Nesting</h1>
-  <p>This is a list of existing patterns applied to nesting UI elements to show dependency.</p>
+  <p>This is a list of existing patterns applied to nesting UI elements to show dependency. Checkboxes are used as an example. Nesting also occurs with other UI elements like radio buttons, drop-downs etc.</p>
+  <p>To best experience the differences, enable the first sub option, then disable the primary option and re-enable it.</p>
 
   <div style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
 
@@ -22,7 +23,7 @@
       <section id="indetermined">
         <h2 class="label-section group-ui-elements has-helptext">Double-Dependent</h2>
         <p class="label-section">show previous sub-state in disabled elements<br/>
-          (seen in HTML, Windows &amp; macOS<br/>&nbsp;</p>
+          <em>(seen in HTML, Windows &amp; macOS</em><br/>&nbsp;</p>
         <div class="group-ui-elements item-checkbox">
           <input id="checkbox-01" type="checkbox" checked>
           <label for="checkbox-01">Option A</label>
@@ -42,7 +43,7 @@
       <section id="disable-sub-retain">
         <h2 class="label-section group-ui-elements has-helptext">Disable Sub</h2>
         <p class="label-section">retain previous sub-state in disabled elements<br/>
-          (seen in <abbr title="Settings - Network - Proxy">Windows</abbr>, <abbr title="Preferences - Date and Time">macOS</abbr> &amp; <abbr title="Preferences - Block dangerous content">Firefox</abbr>)<br/>&nbsp;</p>
+          <em>(seen in <abbr title="Settings - Network - Proxy">Windows</abbr>, <abbr title="Preferences - Date and Time">macOS</abbr> &amp; <abbr title="Preferences - Block dangerous content">Firefox</abbr>)</em><br/>&nbsp;</p>
         <div class="group-ui-elements item-checkbox">
           <input id="checkbox-04" type="checkbox" checked>
           <label for="checkbox-04">Option B</label>
@@ -61,7 +62,8 @@
     <div class="container-content">
       <section id="disable-visible-state">
         <h2 class="label-section">Disable Sub &amp; hide State</h2>
-        <p class="label-section">show that sub are also disabled with parent<br/>(seen in <abbr title="Preferences - App Store">macOS</abbr> &amp; <abbr title="Firefox Preferences - Search Suggestions, Data Collection">Firefox</abbr>)<br/>&nbsp;</p>
+        <p class="label-section">show that sub are also disabled with parent<br/>
+          <em>(seen in <abbr title="Preferences - App Store">macOS</abbr> &amp; <abbr title="Firefox Preferences - Search Suggestions, Data Collection">Firefox</abbr>)</em><br/>&nbsp;</p>
         <div class="group-ui-elements item-checkbox">
           <input id="alluncheck_parent" type="checkbox" checked>
           <label for="alluncheck_parent">Option C</label>
@@ -80,7 +82,8 @@
     <div class="container-content">
       <section id="disable-visible-state">
         <h2 class="label-section">Hide Sub</h2>
-        <p class="label-section">hide sub elements if they can not be used<br/>(seen in <abbr title="Firefox Preferences - Performance">Firefox</abbr>)<br/>&nbsp;</p>
+        <p class="label-section">hide sub elements if they can not be used<br/>
+          <em>(seen in <abbr title="Firefox Preferences - Performance">Firefox</abbr>)</em><br/>&nbsp;</p>
         <div class="group-ui-elements item-checkbox">
           <input id="hidesub_parent" type="checkbox" checked>
           <label for="hidesub_parent">Option D</label>
@@ -99,7 +102,8 @@
     <div class="container-content">
       <section id="disable-visible-state">
         <h2 class="label-section">Hide &amp; Reset Sub</h2>
-        <p class="label-section">hide sub elements and reset their value to default<br/>(seen in <abbr title="Firefox Preferences - History">Firefox</abbr>)<br/>&nbsp;</p>
+        <p class="label-section">hide sub elements and reset their value to default<br/>
+          <em>(seen in <abbr title="Firefox Preferences - History">Firefox</abbr>)</em><br/>&nbsp;</p>
         <div class="group-ui-elements item-checkbox">
           <input id="hideResSub_parent" type="checkbox" checked>
           <label for="hideResSub_parent">Option E</label>
