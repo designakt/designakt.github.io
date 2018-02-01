@@ -420,6 +420,55 @@ input[type="radio"]:checked:hover:active {
   background-color: var(--blue-80);
 }
 
+/* --------Toggle-------- */
+
+input[type="checkbox"].toggle,
+input[type="checkbox"].toggle:disabled:hover,
+input[type="checkbox"].toggle:disabled:hover:active {
+  margin-right: 4px;
+  width: 28px;
+  height: 16px;
+  background-color: var(--grey-90-10);
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position-x: 0px;
+  background-position-y: center;
+  border: 1px solid var(--grey-90-30);
+  border-radius: 8px;
+  background-image: url("./images/radio-16-dark.svg");
+
+
+}
+
+input[type="checkbox"].toggle:checked,
+input[type="checkbox"].toggle:checked:disabled:hover,
+input[type="checkbox"].toggle:checked:disabled:hover:active {
+  background-color: var(--blue-60);
+  background-image: url("./images/radio-16.svg");
+  background-size: 16px;
+  background-position-x: 12px;
+
+
+  border: none;
+
+  animation-name: checked;
+  animation-delay: 0;
+  animation-direction: forwards;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function:  var(--animation-curve);
+}
+
+input[type="checkbox"].toggle:checked:hover {
+  background-color: var(--blue-70);
+}
+
+input[type="checkbox"].toggle:checked:hover:active{
+  background-color: var(--blue-80);
+}
+
+
+
 /* --------Indetermined-------- */
 
 input[type="checkbox"]:indeterminate {

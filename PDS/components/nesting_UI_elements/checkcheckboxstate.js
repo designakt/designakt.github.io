@@ -149,7 +149,32 @@ function updateHideChild() {
 }
 
 // -----------------------
-// Hide Sub
+// Hide Sub Toggle
+var hidesubt_parent = document.querySelector('input[id="hidesubt_parent"]');
+var hidesubt_childA = document.querySelector('input[id="hidesubt_childA"]');
+var hidesubt_childB = document.querySelector('input[id="hidesubt_childB"]');
+
+hidesubt_parent.addEventListener('click', updateHideChild_toggle);
+
+function updateHideChild_toggle() {
+  console.log("hidesubt_parent.checked: "+hidesubt_parent.checked);
+
+  if(hidesubt_parent.checked) {
+    console.log("checked");
+    // show elements
+    hidesubt_childA.parentNode.style.display = "flex";
+    hidesubt_childB.parentNode.style.display = "flex";
+  }
+  else {
+    console.log("unchecked");
+    // hide elements
+    hidesubt_childA.parentNode.style.display = "none";
+    hidesubt_childB.parentNode.style.display = "none";
+  }
+}
+
+// -----------------------
+// Hide Sub 6 Reset
 var hideResSub_parent = document.querySelector('input[id="hideResSub_parent"]');
 var hideResSub_childA = document.querySelector('input[id="hideResSub_childA"]');
 var hideResSub_childB = document.querySelector('input[id="hideResSub_childB"]');

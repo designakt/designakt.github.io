@@ -12,33 +12,13 @@
   <style>
   </style>
 </head>
-<body onload="(function(){updateBottomUp(); updateChild(); alluncheck_updateChild(); updateHideChild(); updateHideResSub();})()" style="margin:20px 40px; height: auto;">
+<body onload="(function(){updateBottomUp(); updateChild(); alluncheck_updateChild(); updateHideChild(); updateHideChild_toggle(); updateHideResSub();})()" style="margin:20px 40px; height: auto;">
 
   <h1 class="label-section" style="margin-bottom:10px;">Nesting</h1>
   <button onclick="(function(){annotateis();})()" style="float:right;">Leave annotation</button>
   <p>This is a list of existing patterns applied to nesting UI elements to show dependency. Checkboxes are used as an example. Nesting also occurs with other UI elements like radio buttons, drop-downs etc.</p>
   <p>To best experience the differences, enable the first sub option, then disable the primary option and re-enable it.</p>
   <div style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
-
-    <div class="container-content">
-      <section id="indetermined">
-        <h2 class="label-section group-ui-elements has-helptext">Double-Dependent</h2>
-        <p class="label-section">show previous sub-state in disabled elements<br/>
-          <em>(seen in HTML, Windows &amp; macOS</em>)<br/>&nbsp;</p>
-        <div class="group-ui-elements item-checkbox">
-          <input id="checkbox-01" type="checkbox" checked>
-          <label for="checkbox-01">Option A</label>
-        </div>
-        <div class="group-ui-elements item-checkbox subcheckbox">
-          <input id="checkbox-02" type="checkbox" class="part">
-          <label for="checkbox-02">Part 1 of option A</label>
-        </div>
-        <div class="group-ui-elements item-checkbox subcheckbox">
-          <input id="checkbox-03" type="checkbox" class="part" checked>
-          <label for="checkbox-03">Part 2 of option A</label>
-        </div>
-      </section>
-    </div>
 
     <div class="container-content">
       <section id="disable-sub-retain">
@@ -62,7 +42,7 @@
 
     <div class="container-content">
       <section id="disable-visible-state">
-        <h2 class="label-section">Disable Sub &amp; hide State</h2>
+        <h2 class="label-section" style="color:darkgreen;">Disable Sub &amp; hide State</h2>
         <p class="label-section">show that sub are also disabled with parent<br/>
           <em>(seen in <abbr title="Preferences - App Store">macOS</abbr> &amp; <abbr title="Firefox Preferences - Search Suggestions, Data Collection">Firefox</abbr>)</em><br/>&nbsp;</p>
         <div class="group-ui-elements item-checkbox">
@@ -102,7 +82,27 @@
 
     <div class="container-content">
       <section id="disable-visible-state">
-        <h2 class="label-section">Hide &amp; Reset Sub</h2>
+        <h2 class="label-section" style="color:darkgreen;">Hide Sub Toggle</h2>
+        <p class="label-section">hide sub elements if they can not be used<br/>
+          <em>(seen in <abbr title="Windows 10 Preferences">Windows</abbr>)</em><br/>&nbsp;</p>
+        <div class="group-ui-elements item-checkbox">
+          <input id="hidesubt_parent" class="toggle" type="checkbox" checked>
+          <label for="hidesubt_parent">Option D2</label>
+        </div>
+        <div class="group-ui-elements item-checkbox subcheckbox">
+          <input id="hidesubt_childA" type="checkbox">
+          <label for="hidesubt_childA">Part 1 of option D2</label>
+        </div>
+        <div class="group-ui-elements item-checkbox subcheckbox">
+          <input id="hidesubt_childB" type="checkbox" checked>
+          <label for="hidesubt_childB">Part 2 of option D2</label>
+        </div>
+      </section>
+    </div>
+
+    <div class="container-content">
+      <section id="disable-visible-state">
+        <h2 class="label-section" style="text-decoration:line-through;">Hide &amp; Reset Sub</h2>
         <p class="label-section">hide sub elements and reset their value to default<br/>
           <em>(seen in <abbr title="Firefox Preferences - History">Firefox</abbr>)</em><br/>&nbsp;</p>
         <div class="group-ui-elements item-checkbox">
@@ -116,6 +116,26 @@
         <div class="group-ui-elements item-checkbox subcheckbox">
           <input id="hideResSub_childB" type="checkbox" checked>
           <label for="hideResSub_childB">Part 2 of option E</label>
+        </div>
+      </section>
+    </div>
+
+    <div class="container-content">
+      <section id="indetermined">
+        <h2 class="label-section group-ui-elements has-helptext" style="text-decoration:line-through;">Double-Dependent</h2>
+        <p class="label-section">show previous sub-state in disabled elements<br/>
+          <em>(seen in HTML, Windows &amp; macOS</em>)<br/>&nbsp;</p>
+        <div class="group-ui-elements item-checkbox">
+          <input id="checkbox-01" type="checkbox" checked>
+          <label for="checkbox-01">Option A</label>
+        </div>
+        <div class="group-ui-elements item-checkbox subcheckbox">
+          <input id="checkbox-02" type="checkbox" class="part">
+          <label for="checkbox-02">Part 1 of option A</label>
+        </div>
+        <div class="group-ui-elements item-checkbox subcheckbox">
+          <input id="checkbox-03" type="checkbox" class="part" checked>
+          <label for="checkbox-03">Part 2 of option A</label>
         </div>
       </section>
     </div>
