@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Nesting - Pattern - PDS">
+  <title>Disable &amp; Hide State - Nesting Example - Pattern - PDS</title>
+  <link href="./../../base.css" rel="stylesheet">
+  <link href="./../../variables.css" rel="stylesheet">
+  <link href="./../../font.css" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet">
+  <style>
+  </style>
+</head>
+<body onload="(function(){alluncheck_updateChild()})()" style="margin:20px 40px; height: auto;">
+
+    <div>
+      <section>
+        <div class="group-ui-elements item-checkbox">
+          <input id="alluncheck_parent" type="checkbox" checked>
+          <label for="alluncheck_parent">Option C</label>
+        </div>
+        <div class="group-ui-elements item-checkbox subcheckbox">
+          <input id="alluncheck_childA" type="checkbox">
+          <label for="alluncheck_childA">Part 1 of option C</label>
+        </div>
+        <div class="group-ui-elements item-checkbox subcheckbox">
+          <input id="alluncheck_childB" type="checkbox" checked>
+          <label for="alluncheck_childB">Part 2 of option C</label>
+        </div>
+      </section>
+    </div>
+  <script>
+    // -----------------------
+    // Disable Sub (uncheck all sub)
+    var alluncheck_parent = document.querySelector('input[id="alluncheck_parent"]');
+    var alluncheck_childA = document.querySelector('input[id="alluncheck_childA"]');
+    var alluncheck_childB = document.querySelector('input[id="alluncheck_childB"]');
+    var state_alluncheck_childA = alluncheck_childA.checked;
+    var state_alluncheck_childB = alluncheck_childB.checked;
+
+    alluncheck_parent.addEventListener('click', alluncheck_updateChild);
+
+    function alluncheck_updateChild() {
+      console.log("alluncheck_parent.checked: "+alluncheck_parent.checked);
+
+      // if parent is checked, restore previous state
+      if(alluncheck_parent.checked) {
+        console.log("checked");
+        // enable sub-elements
+        alluncheck_childA.disabled = false;
+        alluncheck_childB.disabled = false;
+        // set previus state to sub-elements
+        alluncheck_childA.checked = state_alluncheck_childA;
+        alluncheck_childB.checked = state_alluncheck_childB;
+      }
+      // if parent is unchecked, record state and disable
+      else {
+        console.log("unchecked");
+        // record state of sub-elements
+        state_alluncheck_childA = alluncheck_childA.checked;
+        state_alluncheck_childB = alluncheck_childB.checked;
+        // remove state from sub-elements
+        alluncheck_childA.checked = false;
+        alluncheck_childB.checked = false;
+        // disable sub-elements
+        alluncheck_childA.disabled = true;
+        alluncheck_childB.disabled = true;
+      }
+    }
+  </script>
+</body>
+</html>
