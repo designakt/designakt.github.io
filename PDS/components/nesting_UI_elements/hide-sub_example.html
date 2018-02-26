@@ -10,6 +10,25 @@
   <link href="./../../font.css" rel="stylesheet">
   <link href="./styles.css" rel="stylesheet">
   <style>
+  html {
+  }
+  body {
+    opacity: 0.5;
+    background-color: var(--grey-30);
+  }
+  body::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "demo";
+  }
+  body:hover {
+    opacity: 1;
+    background-color: var(--grey-10);
+  }
+  body:hover::before {
+    content: "";
+  }
   </style>
 </head>
 <body onload="(function(){ updateHideChild() })()" style="margin:20px; height: auto;">
