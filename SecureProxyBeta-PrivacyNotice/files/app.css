@@ -852,3 +852,11 @@ span .menu , span .button, li em, .wiki-image {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
+#instruction {
+  background: #f4f1fa;
+  border-color: #f4f1fa;
+  border-style: solid;
+  border-width: 1px 28px;
+  border-radius: 28px;
+}
