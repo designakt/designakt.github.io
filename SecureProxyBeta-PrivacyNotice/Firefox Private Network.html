@@ -20,6 +20,10 @@
           function toggle_visibility(id) {
             var e = document.getElementById(id);
             e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+            if(!navigator.oscpu.includes("Win")){
+              document.getElementById("for-win").style.display = "none";
+              document.getElementById("for-other").style.display = "inline";
+            }
           }
       //-->
     </script>
@@ -45,11 +49,8 @@
           <h3 id="w_how-do-i-opt-in-or-opt-out-of-sending-performance-data">How to opt-out of sending performance data</h3>
           <ol>
             <li>
-              <p>Click the menu button
-              <span class="for" data-for="fx57">
-                <img alt="Fx57Menu" class="wiki-image frameless" src="./img/menu.svg" title="" style="vertical-align: middle;">
-              </span>
-              and choose <span class="for" data-for="win"><span class="button">Options</span></span><span class="for" data-for="mac,linux" style="display: none;"><span class="button">Preferences</span></span>.</p>
+              <p>Click the menu button <img alt="Fx57Menu" class="wiki-image frameless" src="./img/menu.svg" title="" style="vertical-align: middle;">
+              and choose <span id="for-win"><span class="button">Options</span></span><span id="for-other" style="display: none;"><span class="button">Preferences</span></span>.</p>
             </li>
             <li><p>Select the <span><span class="menu">Privacy &amp; Security</span></span> panel.</p></li>
             <li><p>Scroll down to the <em>Firefox Data Collection and Use</em> section.</p></li>
