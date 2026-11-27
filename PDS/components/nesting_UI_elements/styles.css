@@ -170,7 +170,7 @@ section {
 .group-ui-elements.item-link .link-icon {
   width: 16px;
   height: 16px;
-  background-image: url("../images/external-link-16.svg");
+  background-image: url("./images/external-link-16.svg");
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -292,7 +292,10 @@ button:disabled:hover:active {
 
 select {
   -moz-padding-end: 24px;
-  background-image: url("../images/dropdown-16.svg");
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 24px;
+  background-image: url("./images/dropdown-16.svg");
   background-repeat: no-repeat;
   background-position: calc(100% - 8px) center;
   text-overflow: ellipsis;
@@ -343,7 +346,7 @@ input[type="text"]:not(disabled="true"):hover {
 
 input[type="text"].search-field {
   padding: 0 6px 0 28px;
-  background-image: url("../images/search-16.svg");
+  background-image: url("./images/search-16.svg");
   background-repeat: no-repeat;
   background-position: 6px center;
   background-size: 16px;

@@ -559,7 +559,7 @@ a:focus::-moz-focus-inner,button::-moz-focus-inner{
     background-image:url(/img/trackers.svg)
 }
 .settings-icon{
-    background-image:url(/img/settings.svg);
+    background-image:url(../img/settings.svg);
     background-size:16px 16px;
     height:16px;
     width:16px
