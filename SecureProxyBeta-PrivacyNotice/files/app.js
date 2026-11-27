@@ -1,17 +1,5 @@
 "use strict";
 
-function _dntEnabled(a, b) {
-    let c = a || navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-    const d = b || navigator.userAgent,
-        e = d.match(/Firefox\/(\d+)/),
-        f = /MSIE|Trident/i,
-        g = f.test(d),
-        h = d.match(/Windows.+?(?=;)/g);
-    return !(g && "function" != typeof Array.prototype.indexOf) && (c = e && 32 > parseInt(e[1], 10) ? "Unspecified" : g && h && -1 !== ["Windows NT 6.1", "Windows NT 6.2", "Windows NT 6.3"].indexOf(h.toString()) ? "Unspecified" : {
-        0: "Disabled",
-        1: "Enabled"
-    }[c] || "Unspecified", "Enabled" === c)
-}
 const setActiveHowToStep = a => {
         const b = document.querySelectorAll(".active");
         b && b.forEach(a => {
@@ -49,26 +37,9 @@ const setActiveHowToStep = a => {
             })
         };
         return h(d, f), void h(e, g)
-    },
-    initiateGoogleAnalytics = () => {
-        if (!_dntEnabled()) {
-            (function(b, c, d, e, f, g, h) {
-                b.GoogleAnalyticsObject = f, b[f] = b[f] || function() {
-                    (b[f].q = b[f].q || []).push(arguments)
-                }, b[f].l = 1 * new Date, g = c.createElement(d), h = c.getElementsByTagName(d)[0], g.async = 1, g.src = e, h.parentNode.insertBefore(g, h)
-            })(window, document, "script", "https://www.google-analytics.com/analytics.js", "ga"), "undefined" != typeof ga && (ga("create", "UA-36116321-30"), ga("set", "anonymizeIp", !0), ga("set", "transport", "beacon"), ga("send", "pageview"));
-            const a = document.querySelectorAll(".add-to-fx, .only-with-fx");
-            a && a.forEach((a, b) => {
-                a.addEventListener("click", a => {
-                    const c = a.target.classList.contains("only-with-fx") ? "download-firefox-button" : "install-fpn-button";
-                    ga("send", "event", "Button Clicks", `${c}-click`, `${c} - ${b}`)
-                })
-            })
-        }
     };
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
-        initiateGoogleAnalytics();
         const a = /firefox|FxiOS/i.test(navigator.userAgent),
             b = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
             c = document.body.dataset.outsideUsa;
