@@ -1,0 +1,207 @@
+<!doctype html>
+<!--
+  Guideline text on this page is taken and adapted from "Design for Performance"
+  of Mozilla's Photon Design System (https://github.com/FirefoxUX/photon),
+  available under the Mozilla Public License 2.0 (https://mozilla.org/MPL/2.0/).
+  This file is made available under the same license.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perceived Performance - Markus Jaritz</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #fafaf8;
+      --fg: #1a1a1a;
+      --muted: #5c5c5c;
+      --line: #d8d8d4;
+      --do: #1b7f3b;
+      --dont: #c0262d;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --fg: #eee;
+        --muted: #aaa;
+        --line: #383838;
+        --do: #5fce82;
+        --dont: #ff7b80;
+      }
+    }
+    body {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    h1 { letter-spacing: -0.02em; }
+    h2 { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    p, ul { max-width: 44rem; }
+    a { color: inherit; text-underline-offset: 0.2em; }
+    .demos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+      gap: 24px 16px;
+    }
+    figure { margin: 0; }
+    iframe {
+      display: block;
+      width: 100%;
+      height: 260px;
+      box-sizing: border-box;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--do);
+      background: #eee;
+    }
+    .dont iframe { border-top-color: var(--dont); }
+    figcaption { margin-top: 8px; font-size: 0.9rem; }
+    figcaption strong { color: var(--do); }
+    .dont figcaption strong { color: var(--dont); }
+    figcaption a { color: var(--muted); }
+    .notes {
+      margin-top: 24px;
+      padding-left: 16px;
+      border-left: 3px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .notes h3 { margin: 0; font-size: 1rem; }
+    .table { overflow-x: auto; }
+    table { border-collapse: collapse; }
+    th, td {
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    td:nth-child(2) { white-space: nowrap; }
+    @media (max-width: 36rem) {
+      thead { display: none; }
+      tr { display: block; padding: 8px 0; border-bottom: 1px solid var(--line); }
+      td { display: inline; border: 0; }
+      td:first-child { font-weight: 600; }
+      td:last-child { display: block; }
+    }
+    footer { margin-top: 3.5rem; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <a href="../experiments/">&larr; Experiments</a>
+  <h1>Perceived performance</h1>
+  <p>The perception of performance is largely determined by four factors: <em>duration</em>, <em>responsiveness</em>, <em>fluency</em> and <em>tolerance</em>.</p>
+  <p><a href="#duration">Duration</a> &middot; <a href="#responsiveness">Responsiveness</a> &middot; <a href="#fluency">Fluency</a> &middot; <a href="#tolerance">Tolerance</a> &middot; <a href="#other">Other factors</a></p>
+
+  <h2 id="duration">Duration</h2>
+  <p>Duration is the actual time a process takes. This is what technical discussions usually call &ldquo;performance&rdquo;. Different magnitudes of duration require different treatments to achieve an optimal perceived performance.</p>
+  <div class="table">
+    <table>
+      <thead>
+        <tr><th>Term</th><th>Duration</th><th>Response</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Instantaneous</td><td>up to 100 ms</td><td>Acknowledge user input within this time frame. Ideally, a visible process towards completing the task begins within this time span.</td></tr>
+        <tr><td>Immediate</td><td>500&ndash;1000 ms</td><td>Answers to simple requests must be completed within this time frame (e.g. opening a new window).</td></tr>
+        <tr><td>Continuous</td><td>2000&ndash;5000 ms</td><td>Answers to complex requests must be completed within this time frame (e.g. loading a web page).</td></tr>
+        <tr><td>Captive</td><td>7000&ndash;10000 ms</td><td>Users will begin switching tasks at this point. If a process takes longer, it should be segmented.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notes">
+    <h3>Research notes</h3>
+    <ul>
+      <li><a href="https://www.nngroup.com/alertbox/response-times.html">Nielsen Norman Group</a> gives three limits: 0.1 s feels instantaneous, 1 s keeps the train of thought unbroken, 10 s is the limit for holding attention.</li>
+      <li>Google&rsquo;s <a href="https://web.dev/rail">RAIL model</a> likewise aims to respond to input within 100 ms.</li>
+    </ul>
+  </div>
+
+  <h2 id="responsiveness">Responsiveness</h2>
+  <p>Responsiveness is the perceived time it takes the system to respond to user input.</p>
+  <p><strong>Guideline:</strong> React to input right away, even if the full result takes longer. An empty dialog that appears immediately after a click and fills with content a second later feels faster than the same dialog appearing fully populated after a one second delay.</p>
+  <p>Click the button in both demos. The content takes one second in each.</p>
+  <div class="demos">
+    <figure>
+      <iframe src="Responsiveness/example-do.html" title="Responsiveness: do"></iframe>
+      <figcaption><strong>Do:</strong> the panel opens immediately, the content follows. <a href="Responsiveness/example-do.html">Open</a></figcaption>
+    </figure>
+    <figure class="dont">
+      <iframe src="Responsiveness/example-dont.html" title="Responsiveness: don't"></iframe>
+      <figcaption><strong>Don&rsquo;t:</strong> nothing happens until panel and content appear together. <a href="Responsiveness/example-dont.html">Open</a></figcaption>
+    </figure>
+  </div>
+  <div class="notes">
+    <h3>Research notes</h3>
+    <ul>
+      <li><a href="https://web.dev/articles/inp">Interaction to Next Paint</a>, a current web metric, rates 200 ms or less from interaction to the next painted frame as good, and above 500 ms as poor.</li>
+    </ul>
+  </div>
+
+  <h2 id="fluency">Fluency</h2>
+  <p>Fluency is the perceived smoothness of a process. It can also be described as a measure of how hard the machine appears to be working.</p>
+  <p><strong>Guideline:</strong> Aim for a constant 60 frames per second. A stuttering progress indicator gives the impression of lower performance, regardless of the actual duration. If smooth animation is not possible, prefer a static state over a stuttering one.</p>
+  <div class="demos">
+    <figure>
+      <iframe src="Fluency/example-do.html" title="Fluency: do"></iframe>
+      <figcaption><strong>Do:</strong> a spinner in continuous, even motion. <a href="Fluency/example-do.html">Open</a></figcaption>
+    </figure>
+    <figure class="dont">
+      <iframe src="Fluency/example-dont.html" title="Fluency: don't"></iframe>
+      <figcaption><strong>Don&rsquo;t:</strong> a slower spinner that jumps and stalls. <a href="Fluency/example-dont.html">Open</a></figcaption>
+    </figure>
+    <figure>
+      <iframe src="Fluency/example-fallback.html" title="Fluency: fallback"></iframe>
+      <figcaption><strong>Do (fallback):</strong> static &ldquo;Loading&hellip;&rdquo; text instead of choppy animation. <a href="Fluency/example-fallback.html">Open</a></figcaption>
+    </figure>
+  </div>
+  <p>The same rule applies to transitions: a panel should open with a fluid animation, or without any animation if the hardware cannot render it smoothly. A demo for this is <a href="Fluency/example2_do.html">prepared but still empty</a>.</p>
+  <div class="notes">
+    <h3>Research notes</h3>
+    <ul>
+      <li>At 60 frames per second a frame lasts about 16 ms. <a href="https://web.dev/rail">RAIL</a> suggests producing each animation frame in 10 ms or less, to leave the browser time to render.</li>
+      <li>The &ldquo;don&rsquo;t&rdquo; demo changes speed as well as smoothness, so it does not isolate smoothness alone.</li>
+    </ul>
+  </div>
+
+  <h2 id="tolerance">Tolerance</h2>
+  <p>Tolerance is a measure of how long the user expects a process to take, and at what point they will abandon or cancel it.</p>
+  <p><strong>Guideline:</strong> Match duration to the perceived size of the task. The tolerated duration for loading a web page is much longer than for saving a bookmark.</p>
+  <p>Both bars are identical and take about 30 seconds. Only the task differs.</p>
+  <div class="demos">
+    <figure>
+      <iframe src="Tolerance/example-do.html" title="Tolerance: do"></iframe>
+      <figcaption><strong>Do:</strong> a long wait is plausible for a huge task. <a href="Tolerance/example-do.html">Open</a></figcaption>
+    </figure>
+    <figure class="dont">
+      <iframe src="Tolerance/example-dont.html" title="Tolerance: don't"></iframe>
+      <figcaption><strong>Don&rsquo;t:</strong> the same wait for a trivial task. <a href="Tolerance/example-dont.html">Open</a></figcaption>
+    </figure>
+  </div>
+  <div class="notes">
+    <h3>Research notes</h3>
+    <ul>
+      <li>At about 30 seconds, even the &ldquo;do&rdquo; case exceeds the captive range above. A real process of this length should be segmented.</li>
+      <li><a href="https://www.oii.ox.ac.uk/?p=15275">Progress bar research from Carnegie Mellon University</a> reports that stripes moving backwards make a wait feel shorter, as used in both bars here, and that pauses are more tolerable early in a process than near the end.</li>
+    </ul>
+  </div>
+
+  <h2 id="other">Other factors</h2>
+  <p><strong>Bias and priming:</strong> A user&rsquo;s preconception about the speed of something, based on brand or prior knowledge, influences the perception of time. For example, users perceived a browser as faster after reading an article about its recently improved performance.</p>
+  <p>These can also influence the perception of performance:</p>
+  <ul>
+    <li>Perceived task complexity</li>
+    <li>Emotional state</li>
+    <li>UI complexity and visual noise</li>
+    <li>Trends</li>
+    <li>Task frequency, attempts, failures</li>
+  </ul>
+  <p>Further reading: <em>Why Performance Matters</em> by Denys Mishunov (<a href="https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/">part 1</a>, <a href="https://www.smashingmagazine.com/2015/11/why-performance-matters-part-2-perception-management/">part 2</a>, <a href="https://www.smashingmagazine.com/2015/12/performance-matters-part-3-tolerance-management/">part 3</a>) and <em>Designing and Engineering Time</em> by Steven C. Seow.</p>
+
+  <footer>
+    Guideline text taken and adapted from <a href="https://firefoxux.github.io/photon/introduction/design-for-performance.html">Design for Performance</a>, Photon Design System, Mozilla (<a href="https://github.com/FirefoxUX/photon">source</a>, <a href="https://mozilla.org/MPL/2.0/">MPL 2.0</a>). Photon is no longer maintained. The research notes and demo captions were added in 2026.
+  </footer>
+</body>
+</html>
