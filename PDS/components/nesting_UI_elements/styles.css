@@ -16,12 +16,15 @@ body {
   padding: 0;
   height: 100%;
   background-color: var(--grey-10);
+  font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
   font: -moz-dialog;
   line-height: 1.5em;
 }
 
 button, select, input {
   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   border-radius: var(--border-radius);
 }
 
@@ -141,6 +144,7 @@ section {
 
 .group-ui-elements.item-dropdown select {
   width: -moz-fit-content;
+  width: fit-content;
 }
 
 .group-ui-elements.item-checkbox + .item-helptext {
@@ -303,6 +307,8 @@ select {
 
 option {
   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   font-size: 14px;
 }
 
@@ -653,4 +659,11 @@ input[type="checkbox"] {
     box-shadow: 0 0 0 4px var(--teal-50-10),
                 0 0 0 2px var(--teal-60-20);
   }
+}
+
+
+/* keep boxes round and square next to long labels */
+input[type="checkbox"],
+input[type="radio"] {
+  flex-shrink: 0;
 }

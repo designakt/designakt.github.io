@@ -31,6 +31,8 @@ body.demo {
 
 button, select, input {
   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   border-radius: var(--border-radius);
 }
 
@@ -71,6 +73,7 @@ h2.label-section {
 section {
   margin-bottom: 32px;
   width: -moz-fit-content;
+  width: fit-content;
 }
 
 .container-content,
@@ -81,6 +84,7 @@ section {
 
 .container-demo {
   width: -moz-fit-content;
+  width: fit-content;
 }
 
 .group-ui-elements {
@@ -122,4 +126,11 @@ section {
 .item-helptext + .group-ui-elements.item-checkbox,
 .item-helptext + .group-ui-elements.item-radiobutton {
   margin-top: -8px; /* ensure that a checkbox after a checkbox with helptext is decently spaced */
+}
+
+
+/* keep boxes round and square next to long labels */
+input[type="checkbox"],
+input[type="radio"] {
+  flex-shrink: 0;
 }

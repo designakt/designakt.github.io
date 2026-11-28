@@ -16,6 +16,7 @@ body {
   padding: 0;
   height: 100%;
   background-color: var(--grey-10);
+  font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
   font: -moz-dialog;
   line-height: 1.5em;        
 }

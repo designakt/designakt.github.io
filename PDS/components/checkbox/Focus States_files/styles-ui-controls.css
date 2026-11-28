@@ -64,6 +64,7 @@
 
 .group-ui-elements.item-dropdown select {
   width: -moz-fit-content;
+  width: fit-content;
 }
 
 .group-ui-elements.item-checkbox + .item-helptext {
@@ -131,6 +132,8 @@
 
 button, select, input {
   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   border-radius: var(--border-radius);
 }
 
@@ -219,6 +222,8 @@ select {
 
 option {
   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   font-size: 14px;
 }
 
