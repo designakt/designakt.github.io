@@ -1,0 +1,234 @@
+<!doctype html>
+<!--
+  Guideline text on this page is taken and adapted from the Nesting, Radio Buttons
+  and Checkboxes pages of Mozilla's Photon Design System
+  (https://github.com/FirefoxUX/photon), available under the Mozilla Public
+  License 2.0 (https://mozilla.org/MPL/2.0/).
+  This file is made available under the same license.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photon Components and Patterns - Markus Jaritz</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #fafaf8;
+      --fg: #1a1a1a;
+      --muted: #5c5c5c;
+      --line: #d8d8d4;
+      --do: #1b7f3b;
+      --dont: #c0262d;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --fg: #eee;
+        --muted: #aaa;
+        --line: #383838;
+        --do: #5fce82;
+        --dont: #ff7b80;
+      }
+    }
+    body {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    h1 { letter-spacing: -0.02em; }
+    h2 { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    h3 { margin-top: 2.5rem; }
+    h4 { margin: 1.5rem 0 0.5rem; }
+    p, ul { max-width: 44rem; }
+    a { color: inherit; text-underline-offset: 0.2em; }
+    code { font-size: 0.9em; overflow-wrap: anywhere; }
+    .demos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+      gap: 24px 16px;
+    }
+    figure { margin: 0; min-width: 0; }
+    .table + figure { margin-top: 24px; }
+    .scroll { overflow-x: auto; }
+    iframe {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--line);
+      background: #f9f9fa;
+      color-scheme: light;
+    }
+    figcaption { margin-top: 8px; font-size: 0.9rem; }
+    figcaption a { color: var(--muted); }
+    .table { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; min-width: 28rem; font-size: 0.95rem; }
+    th, td {
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .rings { display: flex; flex-wrap: wrap; gap: 16px; padding: 0; list-style: none; }
+    .rings li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: #f9f9fa;
+      color: #0c0c0d;
+      border: 1px solid var(--line);
+    }
+    .rings span {
+      width: 16px;
+      height: 16px;
+      box-sizing: border-box;
+      border-radius: 2px;
+      border: 1px solid rgba(12, 12, 13, 0.3);
+      background: rgba(12, 12, 13, 0.1);
+    }
+    .r1 { box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3); }
+    .r2 { box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 3px rgba(10, 132, 255, 0.2) inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3); }
+    .r3 { box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3); }
+    .r4 { box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.8); }
+    footer { margin-top: 3.5rem; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <a href="../experiments/">&larr; Experiments</a>
+  <h1>Photon components and patterns</h1>
+  <p>Interactive demos and explorations made while building Mozilla&rsquo;s Photon Design System, shown with the guidelines they relate to.</p>
+  <p><a href="#nesting">Nesting</a> &middot; <a href="#radio-buttons">Radio buttons</a> &middot; <a href="#checkboxes">Checkboxes</a></p>
+
+  <h2 id="nesting">Nesting</h2>
+  <p>Use nesting to form a hierarchy that expresses that one element contains or determines the following elements. It is often used to show that some elements are only relevant if a parent element is selected. The two most common forms are disabling and hiding the nested elements.</p>
+  <div class="demos">
+    <figure>
+      <h4>Disable nested elements</h4>
+      <p>Helps people anticipate what enabling the parent will unlock, and gives context on what the parent does.</p>
+      <iframe src="../PDS/components/nesting_UI_elements/disable-hide-state_example.html" title="Disable nested elements" height="230"></iframe>
+      <figcaption>Hover or tap to activate. Switch the parent off and on again, and the earlier choices return. <a href="../PDS/components/nesting_UI_elements/disable-hide-state_example.html">Open</a></figcaption>
+    </figure>
+    <figure>
+      <h4>Hide nested elements</h4>
+      <p>Use if showing them would overly complicate the interface or take too much space, and the visible part gives enough context to avoid surprises.</p>
+      <iframe src="../PDS/components/nesting_UI_elements/hide-sub_example.html" title="Hide nested elements" height="230"></iframe>
+      <figcaption>Hover or tap to activate. Switch the parent off to hide the options. <a href="../PDS/components/nesting_UI_elements/hide-sub_example.html">Open</a></figcaption>
+    </figure>
+  </div>
+
+  <h3>Exploration: six nesting behaviours</h3>
+  <p>Before settling on two forms, this comparison collected nesting behaviours seen in macOS, Windows, Firefox and HTML. Two headings are marked green and two are struck through. The green ones correspond to the two forms in the guideline.</p>
+  <div class="table">
+    <table>
+      <thead><tr><th>Variant</th><th>What happens to nested options</th><th>Marking</th></tr></thead>
+      <tbody>
+        <tr><td>Disable sub &amp; hide state</td><td>Disabled and shown unchecked</td><td>Green</td></tr>
+        <tr><td>Hide sub</td><td>Hidden</td><td>Green</td></tr>
+        <tr><td>Disable sub</td><td>Disabled, previous state stays visible</td><td>None</td></tr>
+        <tr><td>Hide sub toggle</td><td>Hidden, parent is a toggle switch</td><td>None</td></tr>
+        <tr><td>Hide &amp; reset sub</td><td>Hidden and reset to defaults</td><td>Struck through</td></tr>
+        <tr><td>Double-dependent</td><td>Parent also reflects the state of its parts</td><td>Struck through</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure>
+    <iframe src="../PDS/components/nesting_UI_elements/index.html" title="Nesting behaviour comparison" height="640"></iframe>
+    <figcaption>Scroll inside the frame to see all variants. &ldquo;Leave annotation&rdquo; loads the external service hypothes.is. <a href="../PDS/components/nesting_UI_elements/index.html">Open</a></figcaption>
+  </figure>
+
+  <h2 id="radio-buttons">Radio buttons</h2>
+  <p>Radio buttons allow a selection of one option from a group of mutually exclusive options.</p>
+  <ul>
+    <li>Label every group to say what the options are about.</li>
+    <li>Offer two to five choices. For more, consider a drop-down or fewer choices.</li>
+    <li>One option must always be selected.</li>
+    <li>Make the default the first choice if possible. If choices describe a range of impact, order them from greatest to least.</li>
+    <li>Write labels in the imperative, in parallel form and without terminal punctuation.</li>
+  </ul>
+  <div class="demos">
+    <figure>
+      <h4>Selected and unselected</h4>
+      <iframe src="../PDS/components/radio-buttons/behavior.html" title="Radio buttons: selected and unselected" height="200"></iframe>
+      <figcaption>Click an indicator or its label. <a href="../PDS/components/radio-buttons/behavior.html">Open</a></figcaption>
+    </figure>
+    <figure>
+      <h4>Labelled group and focus</h4>
+      <iframe src="../PDS/components/radio-buttons/index.html" title="Radio buttons: labelled group" height="220"></iframe>
+      <figcaption>Click an option, then use the arrow keys to see the focus ring. <a href="../PDS/components/radio-buttons/index.html">Open</a></figcaption>
+    </figure>
+  </div>
+
+  <h3 id="focus">Exploration: focus rings</h3>
+  <p>The stylesheet defines four focus treatments for checkboxes and radio buttons. The samples below are drawn with its values for an unchecked box.</p>
+  <ul class="rings">
+    <li><span class="r1"></span>01: ring and glow</li>
+    <li><span class="r2"></span>02: inner and outer glow</li>
+    <li><span class="r3"></span>03: inner line, ring and glow</li>
+    <li><span class="r4"></span>04: solid 2 px ring</li>
+  </ul>
+  <p>The demo page shows style 03. Its values match the focus style published for Photon radio buttons and checkboxes: <code>0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3)</code>.</p>
+  <figure class="scroll">
+    <iframe src="../PDS/components/checkbox/Focus%20States.html" title="Focus styling 03" height="300" style="min-width: 40rem;"></iframe>
+    <figcaption>All four controls are shown focused. <a href="../PDS/components/checkbox/Focus%20States.html">Open</a></figcaption>
+  </figure>
+
+  <h2 id="checkboxes">Checkboxes</h2>
+  <p>A checkbox is used to choose between two opposite states, often to select or deselect items, or to enable or disable actions.</p>
+  <ul>
+    <li>Use one checkbox for one binary choice, and group checkboxes to show that choices are related.</li>
+    <li>Nest checkboxes to show that options are only available if the parent is selected. See <a href="#nesting">Nesting</a>.</li>
+    <li>Both the box and its label are click targets.</li>
+    <li>Disabled checkboxes have 40% opacity and cannot be used or focused.</li>
+    <li>Write labels in the imperative, in parallel form and without terminal punctuation.</li>
+  </ul>
+
+  <h3>Exploration: four visual styles</h3>
+  <p>Switch between styles A to D with the buttons in the frame. The demo covers a mixed parent state, nested options, help text and a disabled dependent option. Your choice is stored in a cookie.</p>
+  <div class="table">
+    <table>
+      <thead><tr><th>Style</th><th>Unchecked box</th><th>Mixed state</th><th>Focus</th><th>Disabled</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Grey fill, 30% border</td><td>Square</td><td>Pulsing blue to teal</td><td>50% opacity</td></tr>
+        <tr><td>B</td><td>As A</td><td>Dash</td><td>As A</td><td>As A</td></tr>
+        <tr><td>C</td><td>White, 60% border, row highlight on hover</td><td>Dot</td><td>As A</td><td>30% opacity</td></tr>
+        <tr><td>D</td><td>As A</td><td>As A</td><td>Static blue ring</td><td>As A</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The published guideline uses the grey fill with a 30% border, as in A, B and D, and a static focus ring, as in D.</p>
+  <figure>
+    <iframe src="../PDS/components/checkbox/index.html" title="Checkbox style comparison" height="360"></iframe>
+    <figcaption><a href="../PDS/components/checkbox/index.html">Open</a></figcaption>
+  </figure>
+
+  <h3>Exploration: controls in context</h3>
+  <p>Three versions of a Firefox preferences screen, to judge the controls among real settings. Scroll inside each frame.</p>
+  <h4>1. Checkbox draft in a full screen (August 2017)</h4>
+  <p>Applies the first checkbox style. Buttons, fields and drop-downs are still largely unstyled.</p>
+  <figure>
+    <iframe src="../PDS/components/checkbox/Preferences.htm" title="Preferences mockup 1" height="520"></iframe>
+    <figcaption><a href="../PDS/components/checkbox/Preferences.htm">Open</a></figcaption>
+  </figure>
+  <h4>2. Styled controls (August 2017)</h4>
+  <p>The same screen with its own stylesheet, which also styles buttons, drop-downs and text fields.</p>
+  <figure>
+    <iframe src="../PDS/components/checkbox/Preferences2.htm" title="Preferences mockup 2" height="520"></iframe>
+    <figcaption><a href="../PDS/components/checkbox/Preferences2.htm">Open</a></figcaption>
+  </figure>
+  <h4>3. Refined states (January 2018)</h4>
+  <p>A later copy with darker blues for checked, hover and pressed states, matching the published values, plus borders on unchecked boxes and more disabled states.</p>
+  <figure>
+    <iframe src="../PDS/components/nesting_UI_elements/Preferences.html" title="Preferences mockup 3" height="520"></iframe>
+    <figcaption><a href="../PDS/components/nesting_UI_elements/Preferences.html">Open</a></figcaption>
+  </figure>
+
+  <footer>
+    Guideline text taken and adapted from the <a href="https://github.com/FirefoxUX/photon">Photon Design System</a> by Mozilla (<a href="https://mozilla.org/MPL/2.0/">MPL 2.0</a>), pages Nesting (marked as draft), Radio Buttons and Checkboxes. Photon is no longer maintained. Demo descriptions and exploration notes were added in 2026, based on the demo code and its history.
+  </footer>
+</body>
+</html>
